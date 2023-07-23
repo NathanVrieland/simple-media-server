@@ -8,6 +8,7 @@
     <button onclick="shuffle()">shuffle</button>
     <button onclick="pause_all()">pause</button>
     <button onclick="play_current()">play</button>
+    <button onclick="skip()">skip</button>
     {{ body | safe }}
 </body>
 <script>
@@ -39,10 +40,17 @@
         randomized_players[current_player].play()
     }
 
-    function play_next(event) {
+    function play_next() {
+        randomized_players[current_player].currentTime = 0
         current_player += 1
-        randomized_players[current_player].addEventListener("ended", play_next)
-        randomized_players[current_player].play()
+
+        if (current_player > randomized_players.length){
+            shuffle()
+        }
+        else{
+            randomized_players[current_player].addEventListener("ended", play_next)
+            randomized_players[current_player].play()
+        }
     }
 
     function pause_all() {
@@ -54,6 +62,11 @@
 
     function play_current() {
         randomized_players[current_player].play()
+    }
+
+    function skip() {
+        randomized_players[current_player].pause()
+        play_next()
     }
 </script>
 </html>
