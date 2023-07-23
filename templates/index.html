@@ -8,10 +8,12 @@
 </head>
 <body>
     <div class="container">
-        <button onclick="shuffle()" class="btn btn-primary">shuffle</button>
-        <button onclick="pause_all()" class="btn btn-secondary">pause</button>
-        <button onclick="play_current()" class="btn btn-success">play</button>
-        <button onclick="skip()" class="btn btn-warning">skip</button>
+        <div id="media_controls">
+            <button onclick="shuffle()" class="btn btn-primary">shuffle</button>
+            <button onclick="pause_all()" class="btn btn-secondary">pause</button>
+            <button onclick="play_current()" class="btn btn-success">play</button>
+            <button onclick="skip()" class="btn btn-warning">skip</button>
+        </div>
         {{ body | safe }}
     </div>      
 </body>
@@ -19,6 +21,9 @@
 
     var randomized_players = null
     var current_player = 0
+    if (document.querySelectorAll("audio").length == 0) {
+        document.getElementById("media_controls").style.display = "none"
+    }
 
     function randomize_array(array) {
         array = Array.from(array)
@@ -80,6 +85,16 @@
         padding: 0px;
         border: 0px;
         margin: 0px;
+    }
+    #media_controls {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: 3px 10px 3px 10px;
+        background-color: darkgray;
+    }
+    button {
+        margin: 3px;
     }
 </style>
 </html>
