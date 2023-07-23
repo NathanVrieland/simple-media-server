@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta charset="UTF-8">
     <title>{{title}}</title>
 </head>
 <body>
-    <button onclick="shuffle()">shuffle</button>
-    <button onclick="pause_all()">pause</button>
-    <button onclick="play_current()">play</button>
-    <button onclick="skip()">skip</button>
+    <button onclick="shuffle()" class="btn btn-primary">shuffle</button>
+    <button onclick="pause_all()" class="btn btn-secondary">pause</button>
+    <button onclick="play_current()" class="btn btn-success">play</button>
+    <button onclick="skip()" class="btn btn-warning">skip</button>
     {{ body | safe }}
 </body>
 <script>
@@ -41,6 +42,8 @@
     }
 
     function play_next() {
+        randomized_players[current_player].removeEventListener("ended", play_next)
+        randomized_players[current_player].pause()
         randomized_players[current_player].currentTime = 0
         current_player += 1
 
@@ -69,4 +72,17 @@
         play_next()
     }
 </script>
+<style>
+    /* .audio_label {
+        display: flex;
+        justify-content: end;
+    }
+    a {
+        text-decoration: none;
+        color: white;
+        background-color: blue;
+        padding: 3px;
+        border-radius: 5px;
+    } */
+</style>
 </html>
