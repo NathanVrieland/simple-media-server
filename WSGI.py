@@ -21,7 +21,7 @@ def index(subpath=None):
         if "." not in e:
             directory_list.insert(0, directory_list.pop(i)) # put all directories first
     innerhtml = "<table>"
-    innerhtml += f"<tr><th><a href='/{''.join(substring.split('/')[:-1])}'>↑</a></th></tr>" if subpath else ""
+    innerhtml += f"<tr><th><a href='/{''.join(substring.split('/')[:-1])}'>↑back↑</a></th></tr>" if subpath else ""
     for i in directory_list:
         if "." not in i:
             innerhtml += f"<tr><th><a href='{'/' + substring if subpath else ''}/{i}'>{i}</a></th></tr>"

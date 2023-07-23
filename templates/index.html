@@ -5,6 +5,55 @@
     <title>{{title}}</title>
 </head>
 <body>
+    <button onclick="shuffle()">shuffle</button>
+    <button onclick="pause_all()">pause</button>
+    <button onclick="play_current()">play</button>
     {{ body | safe }}
 </body>
+<script>
+
+    var randomized_players = null
+    var current_player = 0
+
+    function randomize_array(array) {
+        array = Array.from(array)
+        let newarray = []
+        for (let i = Math.floor(Math.random() * array.length); array.length > 0; i = Math.floor(Math.random() * array.length)) {
+            newarray.push(array[i])
+            array.splice(i, 1)
+        }
+
+        return newarray;
+    }
+    function shuffle()  {
+        let players = document.querySelectorAll("audio")
+
+        players.forEach((player)=>{
+            player.currentTime = 0
+            player.pause()
+        })
+
+        randomized_players = randomize_array(players)
+        current_player = 0
+        randomized_players[current_player].addEventListener("ended", play_next)
+        randomized_players[current_player].play()
+    }
+
+    function play_next(event) {
+        current_player += 1
+        randomized_players[current_player].addEventListener("ended", play_next)
+        randomized_players[current_player].play()
+    }
+
+    function pause_all() {
+        let players = document.querySelectorAll("audio")
+        players.forEach((player)=>{
+            player.pause()
+        })
+    }
+
+    function play_current() {
+        randomized_players[current_player].play()
+    }
+</script>
 </html>
