@@ -34,3 +34,6 @@ def index(subpath=None):
         title = substring.split("/")[-1]
 
     return render_template("index.html", body=innerhtml, title=title)
+
+if __name__ == '__main__':
+    app.run()
