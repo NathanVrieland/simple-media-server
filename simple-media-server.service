@@ -1,0 +1,10 @@
+[Unit]
+Description=simple server for streaming mp3 files
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/$HOME/simple-media-server/run.sh
+
+[Install]
+WantedBy=multi-user.target
