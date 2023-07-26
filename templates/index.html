@@ -13,6 +13,7 @@
             <button onclick="pause_all()" class="btn btn-secondary">pause</button>
             <button onclick="play_current()" class="btn btn-success">play</button>
             <button onclick="skip()" class="btn btn-warning">skip</button>
+            <input type="range" min="1" max="100" value="100" id="volume_control">
         </div>
         {{ body | safe }}
     </div>      
@@ -21,7 +22,8 @@
 
     var randomized_players = null
     var current_player = 0
-    if (document.querySelectorAll("audio").length == 0) {
+    const all_players = document.querySelectorAll("audio")
+    if (all_players.length == 0) {
         document.getElementById("media_controls").style.display = "none"
     }
 
@@ -72,13 +74,37 @@
     }
 
     function play_current() {
-        randomized_players[current_player].play()
+        if (randomized_players != null) {
+            randomized_players[current_player].play()
+        } else {
+            all_players[0].play()
+            randomized_players = all_players
+        }
     }
 
     function skip() {
         randomized_players[current_player].pause()
         play_next()
     }
+
+    all_players.forEach(element => {
+        element.addEventListener("play", (event) => {
+            all_players.forEach(aplayer => {
+                if (aplayer != element){
+                    aplayer.pause()
+                    aplayer.currentTime = 0
+                }
+            })
+        })
+    })
+
+    document.getElementById("volume_control").addEventListener("input", (event)=>{
+        console.log(event.target.value / 100)
+        all_players.forEach((element) => {
+            element.volume = event.target.value / 100
+        })
+    })
+
 </script>
 <style>
     body {
