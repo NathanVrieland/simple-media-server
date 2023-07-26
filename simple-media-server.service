@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/$HOME/simple-media-server/run.sh
+ExecStart=$HOME/simple-media-server/run.sh
 
 [Install]
 WantedBy=multi-user.target
