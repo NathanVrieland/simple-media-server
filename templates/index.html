@@ -1,12 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <title>{{title}}</title>
 </head>
+
 <body>
+    <svg id="waves_left" viewBox="0 0 675 1800" width="675" height="1800" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+        <rect x="0" y="0" width="675" height="1800" fill="#000000"></rect>
+        <path
+            d="M556 0L411 0L411 78L467 78L467 157L411 157L411 235L565 235L565 313L521 313L521 391L543 391L543 470L344 470L344 548L441 548L441 626L666 626L666 704L544 704L544 783L457 783L457 861L646 861L646 939L599 939L599 1017L452 1017L452 1096L478 1096L478 1174L435 1174L435 1252L364 1252L364 1330L394 1330L394 1409L342 1409L342 1487L605 1487L605 1565L519 1565L519 1643L616 1643L616 1722L370 1722L370 1800L0 1800L0 1722L0 1722L0 1643L0 1643L0 1565L0 1565L0 1487L0 1487L0 1409L0 1409L0 1330L0 1330L0 1252L0 1252L0 1174L0 1174L0 1096L0 1096L0 1017L0 1017L0 939L0 939L0 861L0 861L0 783L0 783L0 704L0 704L0 626L0 626L0 548L0 548L0 470L0 470L0 391L0 391L0 313L0 313L0 235L0 235L0 157L0 157L0 78L0 78L0 0L0 0Z"
+            fill="#09e570"></path>
+        <path
+            d="M326 0L393 0L393 78L358 78L358 157L252 157L252 235L439 235L439 313L327 313L327 391L442 391L442 470L356 470L356 548L288 548L288 626L493 626L493 704L412 704L412 783L374 783L374 861L262 861L262 939L492 939L492 1017L450 1017L450 1096L243 1096L243 1174L445 1174L445 1252L395 1252L395 1330L173 1330L173 1409L444 1409L444 1487L472 1487L472 1565L413 1565L413 1643L204 1643L204 1722L426 1722L426 1800L0 1800L0 1722L0 1722L0 1643L0 1643L0 1565L0 1565L0 1487L0 1487L0 1409L0 1409L0 1330L0 1330L0 1252L0 1252L0 1174L0 1174L0 1096L0 1096L0 1017L0 1017L0 939L0 939L0 861L0 861L0 783L0 783L0 704L0 704L0 626L0 626L0 548L0 548L0 470L0 470L0 391L0 391L0 313L0 313L0 235L0 235L0 157L0 157L0 78L0 78L0 0L0 0Z"
+            fill="#008241"></path>
+        <path
+            d="M78 0L103 0L103 78L2 78L2 157L25 157L25 235L303 235L303 313L295 313L295 391L309 391L309 470L251 470L251 548L258 548L258 626L117 626L117 704L140 704L140 783L49 783L49 861L58 861L58 939L337 939L337 1017L332 1017L332 1096L325 1096L325 1174L141 1174L141 1252L167 1252L167 1330L257 1330L257 1409L6 1409L6 1487L249 1487L249 1565L262 1565L262 1643L32 1643L32 1722L195 1722L195 1800L0 1800L0 1722L0 1722L0 1643L0 1643L0 1565L0 1565L0 1487L0 1487L0 1409L0 1409L0 1330L0 1330L0 1252L0 1252L0 1174L0 1174L0 1096L0 1096L0 1017L0 1017L0 939L0 939L0 861L0 861L0 783L0 783L0 704L0 704L0 626L0 626L0 548L0 548L0 470L0 470L0 391L0 391L0 313L0 313L0 235L0 235L0 157L0 157L0 78L0 78L0 0L0 0Z"
+            fill="#002c14"></path>
+    </svg>
+    <svg id="waves_right" viewBox="0 0 675 1800" width="675" height="1800" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+        <rect x="0" y="0" width="675" height="1800" fill="#000000"></rect>
+        <path
+            d="M248 1800L222 1800L222 1722L115 1722L115 1643L115 1643L115 1565L312 1565L312 1487L268 1487L268 1409L252 1409L252 1330L326 1330L326 1252L293 1252L293 1174L235 1174L235 1096L78 1096L78 1017L218 1017L218 939L98 939L98 861L187 861L187 783L268 783L268 704L200 704L200 626L313 626L313 548L29 548L29 470L59 470L59 391L231 391L231 313L86 313L86 235L70 235L70 157L34 157L34 78L141 78L141 0L675 0L675 78L675 78L675 157L675 157L675 235L675 235L675 313L675 313L675 391L675 391L675 470L675 470L675 548L675 548L675 626L675 626L675 704L675 704L675 783L675 783L675 861L675 861L675 939L675 939L675 1017L675 1017L675 1096L675 1096L675 1174L675 1174L675 1252L675 1252L675 1330L675 1330L675 1409L675 1409L675 1487L675 1487L675 1565L675 1565L675 1643L675 1643L675 1722L675 1722L675 1800L675 1800Z"
+            fill="#09e570"></path>
+        <path
+            d="M400 1800L305 1800L305 1722L438 1722L438 1643L440 1643L440 1565L236 1565L236 1487L305 1487L305 1409L448 1409L448 1330L411 1330L411 1252L180 1252L180 1174L408 1174L408 1096L395 1096L395 1017L381 1017L381 939L266 939L266 861L502 861L502 783L185 783L185 704L506 704L506 626L441 626L441 548L294 548L294 470L485 470L485 391L403 391L403 313L183 313L183 235L447 235L447 157L181 157L181 78L499 78L499 0L675 0L675 78L675 78L675 157L675 157L675 235L675 235L675 313L675 313L675 391L675 391L675 470L675 470L675 548L675 548L675 626L675 626L675 704L675 704L675 783L675 783L675 861L675 861L675 939L675 939L675 1017L675 1017L675 1096L675 1096L675 1174L675 1174L675 1252L675 1252L675 1330L675 1330L675 1409L675 1409L675 1487L675 1487L675 1565L675 1565L675 1643L675 1643L675 1722L675 1722L675 1800L675 1800Z"
+            fill="#008241"></path>
+        <path
+            d="M374 1800L356 1800L356 1722L505 1722L505 1643L662 1643L662 1565L350 1565L350 1487L544 1487L544 1409L405 1409L405 1330L430 1330L430 1252L663 1252L663 1174L637 1174L637 1096L434 1096L434 1017L664 1017L664 939L590 939L590 861L606 861L606 783L436 783L436 704L505 704L505 626L653 626L653 548L455 548L455 470L585 470L585 391L543 391L543 313L514 313L514 235L619 235L619 157L495 157L495 78L382 78L382 0L675 0L675 78L675 78L675 157L675 157L675 235L675 235L675 313L675 313L675 391L675 391L675 470L675 470L675 548L675 548L675 626L675 626L675 704L675 704L675 783L675 783L675 861L675 861L675 939L675 939L675 1017L675 1017L675 1096L675 1096L675 1174L675 1174L675 1252L675 1252L675 1330L675 1330L675 1409L675 1409L675 1487L675 1487L675 1565L675 1565L675 1643L675 1643L675 1722L675 1722L675 1800L675 1800Z"
+            fill="#002c14"></path>
+    </svg>
     <div class="container">
         <div id="media_controls">
             <button onclick="shuffle()" class="btn btn-primary">shuffle</button>
@@ -16,7 +45,7 @@
             <input type="range" min="1" max="100" value="100" id="volume_control">
         </div>
         {{ body | safe }}
-    </div>      
+    </div>
 </body>
 <script>
 
@@ -37,10 +66,10 @@
 
         return newarray;
     }
-    function shuffle()  {
+    function shuffle() {
         let players = document.querySelectorAll("audio")
 
-        players.forEach((player)=>{
+        players.forEach((player) => {
             player.currentTime = 0
             player.pause()
         })
@@ -57,10 +86,10 @@
         randomized_players[current_player].currentTime = 0
         current_player += 1
 
-        if (current_player > randomized_players.length){
+        if (current_player > randomized_players.length) {
             shuffle()
         }
-        else{
+        else {
             randomized_players[current_player].addEventListener("ended", play_next)
             randomized_players[current_player].play()
         }
@@ -68,7 +97,7 @@
 
     function pause_all() {
         let players = document.querySelectorAll("audio")
-        players.forEach((player)=>{
+        players.forEach((player) => {
             player.pause()
         })
     }
@@ -90,7 +119,7 @@
     all_players.forEach(element => {
         element.addEventListener("play", (event) => {
             all_players.forEach(aplayer => {
-                if (aplayer != element){
+                if (aplayer != element) {
                     aplayer.pause()
                     aplayer.currentTime = 0
                 }
@@ -98,7 +127,7 @@
         })
     })
 
-    document.getElementById("volume_control").addEventListener("input", (event)=>{
+    document.getElementById("volume_control").addEventListener("input", (event) => {
         console.log(event.target.value / 100)
         all_players.forEach((element) => {
             element.volume = event.target.value / 100
@@ -108,19 +137,46 @@
 </script>
 <style>
     body {
+        background: black;
         padding: 0px;
         border: 0px;
         margin: 0px;
+        color: #09e570;
     }
+
     #media_controls {
         display: flex;
         justify-content: center;
         width: 100%;
         padding: 3px 10px 3px 10px;
-        background-color: darkgray;
+        /* background-color: darkgray;   */
+    }
+
+    #waves_left {
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    #waves_right {
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        right: 0;
     }
     button {
         margin: 3px;
     }
+    th,
+    td {
+        color: #09e570
+    }
+    audio {
+        opacity: 1;
+        background-color: #09e570;
+        border-radius: 30px;
+        width: 100%;
+    }
 </style>
+
 </html>
