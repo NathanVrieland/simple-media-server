@@ -20,7 +20,7 @@ def index(subpath=None):
     for i, e in enumerate(directory_list):
         if "." not in e:
             directory_list.insert(0, directory_list.pop(i)) # put all directories first
-    innerhtml = "<table class='table table-striped'>"
+    innerhtml = "<table class='table'>"
     innerhtml += f"<tr class=''><th colspan='2'><a href='/{''.join(substring.split('/')[:-1])}' class='btn btn-primary'>↑back↑</a></th></tr>" if subpath else ""
     for i in directory_list:
         if "." not in i:
