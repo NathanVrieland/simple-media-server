@@ -24,7 +24,7 @@ def index(subpath=None):
     innerhtml += f"<tr class=''><th colspan='2'><a href='/{''.join(substring.split('/')[:-1])}' class='btn btn-primary'>↑back↑</a></th></tr>" if subpath else ""
     for i in directory_list:
         if "." not in i:
-            innerhtml += f"<tr><th colspan='2'><a href='{'/' + substring if subpath else ''}/{i}' class='btn btn-dark'>{i}</a></th></tr>"
+            innerhtml += f"<tr><th colspan='2'><a href='{'/' + substring if subpath else ''}/{i}' class='btn btn-success'>{i}</a></th></tr>"
         elif ".mp3" in i:
             innerhtml += f"<tr class=''><th>{i}</th><td class='d-flex justify-content-start'><audio controls preload='none' src='{'/' + substring if subpath else ''}/{i}'</td></tr>"
     innerhtml += "</table>"
