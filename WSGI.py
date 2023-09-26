@@ -1,22 +1,22 @@
 from flask import Flask, render_template, request, send_file, redirect, make_response
 import os
 import hashlib
-import secrets
+import mysecrets
 
 app = Flask(__name__)
 
 @app.route("/authenticate")
 def auth():
     if request.args.get("password"):
-        if hashlib.sha256(request.args.get("password").encode('utf-8')).digest() in secrets.passwords:
+        if hashlib.sha256(request.args.get("password").encode('utf-8')).digest() in mysecrets.passwords:
             resp = make_response(redirect('/'))
-            resp.set_cookie("auth", secrets.cookie)
+            resp.set_cookie("auth", mysecrets.cookie)
             return resp
         else:
             print(hashlib.sha256(request.args.get("password").encode('utf-8')).digest())
             return redirect("/authenticate")
     else:
-        innerhtml = "<form method='GET' action='/authenticate'><input type='password' name='password' id='password'></input></form>"
+        innerhtml = "<form method='GET' action='/authenticate'><label for='password'>password: </label><input type='password' name='password' id='password'></input></form>"
         return render_template("index.html", body=innerhtml, title="login")
 
 @app.route("/")
