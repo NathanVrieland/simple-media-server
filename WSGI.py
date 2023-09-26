@@ -22,7 +22,7 @@ def auth():
 @app.route("/")
 @app.route("/<path:subpath>")
 def index(subpath=None):
-    if request.cookies.get("auth") == secrets.cookie:
+    if request.cookies.get("auth") == mysecrets.cookie:
         if subpath == "favicon.ico":
             return send_file(path_or_file=f"./icon.png", mimetype="image")
 
