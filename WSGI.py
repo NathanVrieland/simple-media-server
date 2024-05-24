@@ -40,7 +40,7 @@ def index(subpath=None):
             if "." not in e:
                 directory_list.insert(0, directory_list.pop(i)) # put all directories first
         innerhtml = "<table class='table'>"
-        innerhtml += f"<tr class=''><th><a href='/{''.join(substring.split('/')[:-1])}' class='btn btn-primary'>↑back↑</a></th><th style='padding: 0px; width: 50%;'><span id='currentsong'></span></th></tr>" if subpath else ""
+        innerhtml += f"<tr class=''><th><a href='/{''.join(substring.split('/')[:-1])}' class='btn btn-primary'>↑back↑</a></th><th style='padding: 0px; width: 50%;' colspan='2'><span id='currentsong'></span></th></tr>" if subpath else ""
         for i in directory_list:
             if "." not in i:
                 innerhtml += f"<tr><th colspan='2'><a href='{'/' + substring if subpath else ''}/{i}' class='btn btn-success'>{i}</a></th></tr>"

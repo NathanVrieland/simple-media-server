@@ -130,13 +130,14 @@
     all_players.forEach(element => {
         element.addEventListener("play", (event) => {
             element.style.background="white";
-            document.getElementById("currentsong").innerText = `playing: ${element.parentElement.previousSibling.innerText}`
+            document.getElementById("currentsong").innerHTML = `playing: <img src='/icons${window.location.pathname}/${element.parentElement.previousSibling.innerText}.mp3' style='margin: 5px' /> ${element.parentElement.previousSibling.innerText}`
             all_players.forEach(aplayer => {
                 if (aplayer != element) {
                     aplayer.style.background="black";
                     aplayer.pause()
                     aplayer.currentTime = 0
                 }
+            console.log(event.target)
             })
         })
     })
