@@ -1,4 +1,7 @@
 from flask import Flask, render_template, request, send_file, redirect, make_response
+from mutagen.mp3 import MP3
+from mutagen.id3 import ID3, APIC
+from io import BytesIO
 import os
 import hashlib
 import mysecrets
@@ -42,7 +45,7 @@ def index(subpath=None):
             if "." not in i:
                 innerhtml += f"<tr><th colspan='2'><a href='{'/' + substring if subpath else ''}/{i}' class='btn btn-success'>{i}</a></th></tr>"
             elif ".mp3" in i:
-                innerhtml += f"<tr class=''><th>{i.replace('.mp3', '')}</th><td class='d-flex justify-content-start'><audio controls preload='none' src='{'/' + substring if subpath else ''}/{i}'</td></tr>"
+                innerhtml += f"<tr class=''><td><img src='{'icons/' + substring if subpath else ''}/{i}'/></td><th>{i.replace('.mp3', '')}</th><td class='d-flex justify-content-start'><audio controls preload='none' src='{'/' + substring if subpath else ''}/{i}'</td></tr>"
         innerhtml += "</table>"
 
         title = "index"
@@ -53,6 +56,16 @@ def index(subpath=None):
     else:
         return redirect("/authenticate")
 
+@app.route("/icons/<path:subpath>")
+def icons(subpath):
+    audio = MP3(f"./content/{subpath}", ID3=ID3)
+    mp3buffer = BytesIO()
+    for tag in audio.tags.values():
+        if isinstance(tag, APIC):
+            mp3buffer.write(tag.data)
+            mp3buffer.seek(0)
+            return send_file(mp3buffer, mimetype="image")
+    return send_file("./default/cover.png", mimetype="image")
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=80)
