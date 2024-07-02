@@ -48,6 +48,19 @@ def index(subpath=None):
                 innerhtml += f"<tr class=''><td><img src='{'icons/' + substring if subpath else ''}/{i}'/></td><th>{i.replace('.mp3', '')}</th><td class='d-flex justify-content-start'><audio controls preload='none' src='{'/' + substring if subpath else ''}/{i}'</td></tr>"
         innerhtml += "</table>"
 
+        fileuploadform = f"""
+        <div>
+            <form method='post' action='/upload' class='form-group d-flex' enctype='multipart/form-data'>
+                <input type="file" name="fileupload" id="fileupload" class='form-control-file' style='width: fit-content;'>
+                <input type="hidden" name="path" value="{substring}">
+                <input type="submit" value="upload" class='btn btn-primary'>
+            </form>
+        </div>
+        """
+
+        if substring:
+            innerhtml += fileuploadform
+
         title = "index"
         if subpath:
             title = substring.split("/")[-1]
@@ -66,6 +79,17 @@ def icons(subpath):
             mp3buffer.seek(0)
             return send_file(mp3buffer, mimetype="image")
     return send_file("./default/cover.png", mimetype="image")
+
+@app.route("/upload", methods=["POST"])
+def upload():
+    if request.cookies.get("auth") == mysecrets.cookie:
+        if request.method == "POST":
+            file = request.files["fileupload"]
+            path = request.form["path"]
+            file.save(f"./content/{path}/{file.filename}")
+            return redirect(f"/{path}")
+    else:
+        return redirect("/authenticate")
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=80)
